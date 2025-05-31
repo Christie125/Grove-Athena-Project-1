@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grove Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" class="star">
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <div class="off-screen-menu">
+        <span class="material-symbols-outlined close-icon">close</span>
+        <ul>
+            <li> <span class="material-symbols-outlined">checklist</span> <a href="/habits">Habits</a> </li>
+            <li> <span class="material-symbols-outlined">leaderboard</span> <a href="/leaderboard">Leaderboard</a> </li>
+            <li id="current-page"> <span class="material-symbols-outlined"> account_circle</span> <a href="/profile">Profile</a> </li>
+        </ul>
+    </div>
+        <div class="points-rectangle">
+        <div class="tooltip">
+            <span class="material-icons star">star</span>
+            <%= points %>
+            <span class="tooltiptext">Check off habits to earn points.</span>
+        </div>
+    </div>
+    <span class="material-symbols-outlined menu-icon">menu</span>    
+    <h1>Hi, <%= username %>!
+        <span class="material-symbols-outlined edit-icon" onclick="openPopup()">info</span>
+        <div class="popup" id="popup">
+            <form action="">
+                <label for="username">
+                    Username:
+                </label>
+                <input type="text" id="username" name="username" placeholder="<%= username %>" readonly>
+                <br>
+                <label for="email">
+                    Email:
+                </label>
+                <input type="text" id="email" name="email"  placeholder="<%= email %>" readonly>
+                <br>
+                <button type="button" onclick="closePopup()">OK</button>
+                <br>
+            </form>
+        </div>
+    </h1>
+    <br><br>
+    <fieldset>
+        <a href="http://localhost:3000/logout" class="logout">Log Out</a>
+    </fieldset>
+
+    <script src="/js/popup.js"></script>
+    <script src="/js/ham-menu.js"></script>
+</body>
+</html>

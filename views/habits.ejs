@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Habits - Grove</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" class="star">
+    <link rel="stylesheet" href="/habits.css">
+</head>
+<body>
+    <div class="off-screen-menu">
+        <span class="material-symbols-outlined close-icon">close</span>
+        <ul>
+            <li id="current-page"> <span class="material-symbols-outlined">checklist</span> <a href="/habits">Habits</a> </li>
+            <li> <span class="material-symbols-outlined">leaderboard</span> <a href="/leaderboard">Leaderboard</a> </li>
+            <li> <span class="material-symbols-outlined"> account_circle</span> <a href="/profile">Profile</a> </li>
+        </ul>
+    </div>
+    <div class="points-rectangle">
+        <div class="tooltip">
+            <span class="material-icons star">star</span>
+            <span id="points-display"><%= points %></span>
+            <span class="tooltiptext">Check off habits to earn points.</span>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <form action="/submit-habit" method="POST" id="add-habit-form">
+            <label for="new_habit">
+                New habit name:
+                <br>
+            </label>
+            <input type="text" id="new_habit" name="new_habit">
+            <br>
+            <br>
+            <label for="new_habit_details">
+                Any details or notes?
+                <br>
+            </label>
+            <input type="text" id="new_habit_details" name="new_habit_details">
+            <br>
+            <br>
+            <label for="how_often_habit">
+                How many times a day do you want to do your habit?
+                <br>
+            </label>
+            <input type="number" id="how_often_habit" name="how_often_habit">
+            <br>
+            <button type="submit" onclick="closePopup()" id="add-habit-button">OK</button>
+            <br>
+        </form>
+    </div>
+    <span class="material-symbols-outlined menu-icon">menu</span>    
+    <h1>Your Habits</h1>
+    <div class="center-wrapper">
+        <div class="icon-container-add" onclick="openPopup()">
+            <span class="material-symbols-outlined add-icon">add</span>
+            <p>Add Habit</p>
+        </div>
+        <div id="habitsContainer">
+        </div>
+        </div>
+    </div>
+    <script>
+        const userHabits = <%- JSON.stringify(habits || []) %>;
+    </script>
+          <script src="/js/ham-menu.js"></script>
+          <script src="/js/popup.js"></script>
+          <script src="/js/client.js"></script>   
+</body>
+</html>

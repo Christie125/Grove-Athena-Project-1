@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root{
+    --darkest-green: #53793D;
+    --background-light: #f2e8cf1a;
+    --light-beige:#f2eee3;
+    --beige: #F2E8CF;
+    --grey-input-border: #cbcaca6e;
+    --avocado-menu: #CDD993E6;
+    --avocado: #CDD993;
+    --yellow: #FAFCB1;
+  }
+  
+  body {
+    font-family: 'Manrope', sans-serif;
+    color: var(--darkest-green);
+    background-color: var(--background-light);
+  }
+  
+  h1{
+    text-align: center;
+    font-weight: 900;
+    font-size: 2.3em;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 3%;
+  }
+
+  p{
+    font-weight: 400;
+    font-size: 1.1em;
+    vertical-align: middle;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 100,
+  }
+
+  .star {
+    color: var(--yellow);
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: var(--darkest-green);
+    transform: translate(0, 4px);
+}
+  
+  .menu-icon { 
+    font-size: 60px; 
+    padding: 1%;
+    cursor: pointer;
+  }
+
+  .center-wrapper {
+    display: flex;
+    flex-direction: column;     /* Stack the elements vertically */
+    align-items: center;   
+  }  
+
+.icon-container-add {
+  width: 20%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                
+  margin-top: 0px;
+  border: var(--darkest-green) solid 1px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+  .add-icon {
+    font-size: 50px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+.off-screen-menu{
+  height: 100vh;
+  background-color: var(--avocado-menu);
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  left: -450px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 1.5em;
+  transition: left 0.3s ease;
+  z-index: 1001;
+}
+
+.off-screen-menu.active{
+  left: 0;
+}
+
+.close-icon {
+  font-size: 60px;
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30%;
+}
+
+ul li {
+  margin-top: 2%;
+  padding: 10px 20px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+ul li span.material-symbols-outlined {
+  margin-right: 10px;  /* Space between the icon and the text */
+  font-size: 1.5em;  /* Adjust icon size */
+}
+
+ul li span.material-symbols-outlined:first-child {
+  padding-left: 5px;
+}
+
+
+ul li:hover {
+  background-color: var(--darkest-green);
+  color: white;
+}
+
+ul a {
+  color: var(--darkest-green);
+  text-decoration: none;
+  width: 100%; 
+  align-items: center;
+}
+
+ul li:hover a {
+  color: white; /* Ensure the anchor tag turns white when the list item is hovered */
+}
+button:focus {
+  outline: 2px solid var(--darkest-green);
+}
+
+#current-page{
+  background-color: var(--avocado);
+}
+
+#current-page:hover{
+  background-color: var(--darkest-green);
+}
+
+.popup {
+  background: var(--light-beige);
+  border: 1.5px solid var(--darkest-green);
+  border-radius: 8px;
+  padding: 1%;
+  font-size: 0.7em;
+  width: 35%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  visibility: hidden;
+  z-index: 1000;
+  align-content: start;
+  text-align: left;
+  margin-left: 2%;
+  transition: ease-in-out;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 35%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: ease-in-out;
+}
+
+button{
+  width: 20%;
+  height: 5vh;
+  padding: 0.25%;
+  background-color: var(--darkest-green);
+  border-radius: 5px;
+  align-content: center; 
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  margin-top: 4%;
+  color: white;
+  border-width: 0;
+}
+
+input{
+  font-family: 'Manrope', sans-serif;
+  border: solid 1px var(--darkest-green);
+  border-radius: 8px;
+}
+
+label{
+  font-weight: bold;
+}
+
+#habitsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 2%;
+  margin: 1%;
+  line-height: 1;
+}
+
+.habit_name_heading{
+  font-size: 1.3em;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3.5%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.habit_description{
+  font-size: 1em;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3.5%;
+}
+
+.habit_frequency{
+  font-size: 1em;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+.habits_div {
+    background-color: var(--light-beige);
+    border-radius: 10px;
+    width: 50%;
+    margin-bottom: 2%;
+    padding: 3%;
+    border: solid 1px var(--darkest-green);
+}
+
+.habit_frequency_checkbox{
+  width: 20px;
+  height: 20px;
+  accent-color: var(--darkest-green);
+}
+
+.delete-button {
+  cursor: pointer;
+  display: inline;
+}
+
+.habit_buttons {
+  display: flex;
+  gap: 8px; /* space between edit and delete buttons */
+}
+
+.points-rectangle{
+      position: relative;
+      top: 32px; 
+}
+
+.tooltip {
+  position: relative;
+  display: inline;
+  border-bottom: 1px dotted black; /*  dots under the hoverable text */
+  margin-left: 85%;
+  margin-top: -2%;
+  font-weight: bolder;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-weight: normal;
+  background-color: var(--darkest-green);
+  color: var(--beige);
+  text-align: center;
+  padding: 5%;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  width: 200%;
+  top: 100%;
+  left: -50%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
