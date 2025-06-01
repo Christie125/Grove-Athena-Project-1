@@ -199,6 +199,11 @@ button{
   border-width: 0;
 }
 
+button:hover{
+  background-color: var(--avocado);
+  color: var(--darkest-green);
+}
+
 input{
   font-family: 'Manrope', sans-serif;
   border: solid 1px var(--darkest-green);
@@ -244,6 +249,11 @@ label{
   font-weight: 900;
   margin: 0;
   padding: 0;
+}
+
+input:focus {
+  outline: none;
+  border: 1.5px solid var(--darkest-green);
 }
 
 .habits_div {
@@ -296,11 +306,27 @@ label{
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  width: 200%;
+  width: 300%;
   top: 100%;
-  left: -50%;
+  left: -110%;
+  font-size: 0.9em;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+
+.notification {
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1%;
+  border: solid 1px var(--darkest-green);
+  border-radius: 8px;
+  background: var(--avocado);
 }
