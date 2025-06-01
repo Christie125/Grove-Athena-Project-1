@@ -60,6 +60,18 @@ for (let i = 0; i < habit.frequency; i++) {
   document.getElementById('habitsContainer').appendChild(habitsDiv);
 }
 
+let notificationBox = document.getElementById('notification');
+
+function showNotification(message) {
+    let notification = document.createElement('div');
+    notification.className = ('notification');
+    notification.textContent = message;
+    notificationBox.appendChild(notification);
+    setTimeout(() => {
+        notificationBox.removeChild(notification);
+    }, 1900); // Remove notification after 3 seconds
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     
      if (typeof userHabits !== "undefined") {
@@ -99,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (response.ok) {
                     const result = await response.json();
-                    alert(result.message);
+                    showNotification("Habit added successfully!");
                     addHabitForm.reset();
                     showHabit({ name, description, frequency });
                 } else {
@@ -136,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
             const totalCount = checkboxes.length;
             if (checkedCount === totalCount) {
-                alert(`All checkboxes for ${habitName} are checked.`);
+                showNotification(`You've finished your habit ${habitName} today!`);
             }
             //prevent re-checking the checkbox
             if (checkbox.checked) {
@@ -202,7 +214,7 @@ document.getElementById('habitsContainer').addEventListener('click', (event) => 
         const habitDiv = event.target.closest('.habits_div');
         if (habitDiv) {
             habitDiv.remove();
-            alert('Habit deleted successfully.');
+            showNotification('Habit deleted successfully.');
         }
         // send a request to the server to delete the habit from the database	
             const habitName = habitDiv.querySelector('.habit_name h2.habit_name_heading').textContent.trim();
@@ -227,6 +239,10 @@ async function updatePointsUI() {
             const display = document.getElementById('points-display');
             if (display) display.textContent = data.points;
         }
+        const pointsSound = new Audio('/point.mp3');
+        pointsSound.play().catch((err) => {
+            console.warn("Points sound could not be played:", err);
+        });
     } catch (err) {
         console.error("Error fetching updated points:", err);
     }
