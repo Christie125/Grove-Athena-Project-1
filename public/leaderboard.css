@@ -7,6 +7,9 @@
     --grey-input-border: #cbcaca6e;
     --avocado-menu: #CDD993E6;
     --avocado: #CDD993;
+    --light-avocado: #dae2b0;
+
+    --yellow: #FAFCB1;
   }
   
   body {
@@ -30,6 +33,21 @@
     'GRAD' 0,
     'opsz' 100,
   }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 100,
+  }
+
+  .star {
+    color: var(--yellow);
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: var(--darkest-green);
+    transform: translate(0, 3px);
+}
 
   .menu-icon { 
     font-size: 60px; 
@@ -120,8 +138,7 @@ button:focus {
 
 table{
   padding: 2%;
-  width: 25%;
-  justify-content: center;
+  width: 45%;
   text-align: center;
   border-spacing: 0;
   margin:auto;
@@ -129,7 +146,7 @@ table{
 }
 
 td:nth-child(odd){
-  background-color: var(--avocado);
+  background-color: var(--light-avocado);
 }
 
 td:nth-child(2) {
@@ -139,4 +156,40 @@ td:nth-child(2) {
 
 td {
   border: 1px solid var(--darkest-green);
+  align-content: middle;
+  vertical-align:middle;
+}
+
+.points-rectangle{
+      position: relative;
+      top: 32px; 
+}
+
+.tooltip {
+  position: relative;
+  display: inline;
+  border-bottom: 1px dotted black; /*  dots under the hoverable text */
+  margin-left: 85%;
+  margin-top: -2%;
+  font-weight: bolder;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-weight: normal;
+  background-color: var(--darkest-green);
+  color: var(--beige);
+  text-align: center;
+  padding: 5%;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  width: 200%;
+  top: 100%;
+  left: -50%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

@@ -21,7 +21,7 @@ function getleaderboard() {
 
             // Points column
             const tdPoints = document.createElement("td");
-            tdPoints.textContent = user.points;
+            tdPoints.innerHTML = `${user.points} <span class="material-icons star">star</span>`;
             tr.appendChild(tdPoints);
 
             // Appending the row to the table

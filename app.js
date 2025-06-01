@@ -231,9 +231,21 @@ app.get("/get-points", async (req, res) => {
   }
 });
 
-app.get("/leaderboard", (req, res) => {
+app.get("/leaderboard", async (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('leaderboard');
+     try {
+      const userId = req.user.id;
+      const userPoints = await pool.query("SELECT points FROM points WHERE user_id = $1", [userId]);
+      const pointsValue = userPoints.rows.length > 0 ? userPoints.rows[0].points : 0;
+
+      res.render('leaderboard', {
+        points: pointsValue
+      });
+
+    } catch (error) {
+      console.error("Error fetching points for profile:", error);
+      res.status(500).send("Internal Server Error");
+    }
   }
   else {
     res.redirect("/login");
