@@ -2,27 +2,39 @@
 
 :root{
     --darkest-green: #53793D;
-    --background-light: #f2e8cf, 10%
+    --background-light: #f2e8cf, 10%;
+    --avocado: #CDD993;
+    --light-avocado: #dae2b0;
+    --avocado-hover: #dce6ac;
+    --yellow: #FAFCB1;
+
   }
   
   body {
     font-family: 'Manrope', sans-serif;
     color: var(--darkest-green);
-    background-image: url('/images/Background.jpg'); 
-    background-blend-mode: lighten;
-    background-clip: border-box;
+    background-color: var(--light-avocado);
 }
   
   h1{
-    padding-top: 2%;
     text-align: center;
     font-weight: 900;
-    font-size: 2.3em;
+    font-size: 3em;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+  }
+
+  h5 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5em;
+    margin: 0;
+    padding: 0;
   }
 
   #login_with_google_button {
-    width: 35%;
-    height: 45px;
+    width: 25%;
+    height: 30px;
     color: var(--darkest-green);
     -moz-border-radius:5px;  
     border-radius: 5px;  
@@ -31,23 +43,41 @@
   }
 
   fieldset{
-    width: 50%;
+    width: 25%;
     text-align: center;
-    margin:auto;
-    -moz-border-radius:10px;  
-    border-radius: 10px;  
-    -webkit-border-radius: 15px;
-    border-color: var(--darkest-green);
-    background-color: white;
-    background-clip: content-box;
+    margin: auto;
+    border-radius: 10px;
+    border: 1.5px solid var(--darkest-green);
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: var(--avocado);
+    background-clip: border-box;
+  }
+
+  fieldset:hover {
+    background-color: var(--avocado-hover);
   }
 
   .logo {
-    width: 7%;
-    height: 7%;
+    width: 6%;
+    height: 6%;
     top: 0;
     left: 0;
     padding: 0;
     margin: 0;
     fill: white;
+  }
+  
+  .star {
+    color: var(--yellow);
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: var(--darkest-green);
+    font-size: 150px;
+  }
+
+  .star-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 3%;
   }
