@@ -68,7 +68,7 @@ fieldset:hover .logout {
 }
 
   .logout{
-    color: var(--beige) !important;
+    color: white !important;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
