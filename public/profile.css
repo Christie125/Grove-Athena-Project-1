@@ -43,20 +43,35 @@
     'opsz' 100,
   }
 
-  fieldset{
-    width: 25%;
-    margin:auto;
-    text-align: center;
-    background-color: var(--beige);
-    background-clip: border-box;
-  }
+fieldset{
+  width: 20%;
+  height: 5vh;
+  padding: 0.25%;
+  background-color: var(--darkest-green);
+  border-radius: 5px;
+  align-content: center; 
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+  margin-top: 4%;
+  border-width: 0;
+  text-align: center;
+  margin: auto;
+  z-index: 1000;
+}
+
+fieldset:hover {
+  background-color: var(--avocado);
+}
+
+fieldset:hover .logout {
+  color: var(--darkest-green) !important;
+}
 
   .logout{
-    color: var(--darkest-green);
+    color: var(--beige) !important;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
-    align-self: center;
   }
 
   .menu-icon { 
@@ -125,6 +140,11 @@ button{
   margin-top: 4%;
   color: white;
   border-width: 0;
+}
+
+button:hover{
+  background-color: var(--avocado);
+  color: var(--darkest-green);
 }
 
 .off-screen-menu{
