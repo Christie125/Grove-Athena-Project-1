@@ -20,7 +20,7 @@
         <div class="points-rectangle">
         <div class="tooltip">
             <span class="material-icons star">star</span>
-            <%= points %>
+            <span id="points-display"><%= points %></span>
             <span class="tooltiptext">Check off habits to earn points.</span>
         </div>
     </div>
@@ -39,7 +39,7 @@
                 </label>
                 <input type="text" id="email" name="email"  placeholder="<%= email %>" readonly>
                 <br>
-                <button type="button" onclick="closePopup()">OK</button>
+                <button type="button" class="button" onclick="closePopup()">OK</button>
                 <br>
             </form>
         </div>
