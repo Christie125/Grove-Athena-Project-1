@@ -124,7 +124,7 @@ ul li {
 
 ul li span.material-symbols-outlined {
   margin-right: 10px;  /* Space between the icon and the text */
-  font-size: 1.5em;  /* Adjust icon size */
+  font-size: 1.5em;  /* Icon size */
 }
 
 ul li span.material-symbols-outlined:first-child {
@@ -252,7 +252,7 @@ label{
 }
 
 input:focus {
-  outline: none;
+  outline: 0.3px solid var(--darkest-green);
   border: 1.5px solid var(--darkest-green);
 }
 
@@ -266,8 +266,8 @@ input:focus {
 }
 
 .habit_frequency_checkbox{
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   accent-color: var(--darkest-green);
 }
 

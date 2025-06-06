@@ -6,25 +6,30 @@
     <link rel="stylesheet" href="/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Grove Login</title>
-    </head>
 </head>
 <body>
-    <a href="/login"><img src="/images/Grove_Logo_Semi_Transparent.svg" alt="Grove logo" class="logo"></a>
+    <a href="/login"><img src="/images/Grove_Logo_Semi_Transparent.svg" alt="Grove Home" class="logo"></a>
+    <header>
     <h1>Grove</h1>
-    <h5>Win your day. Rule the board.</h5>
+    <h2>Win your day. Rule the board.</h2>
+    </header>
     <br>
     <br>
-    <fieldset>
-    <a href='/auth/google' id="login_with_google_button">Log In With Google</a>
+    <main>
+    <fieldset role="button" aria-label="Log in with Google">
+    <a href='/auth/google' id="login_with_google_button" role="button">Log In With Google</a>
     </fieldset>
-    <div class="star-container">
-        <span class="material-icons star">star</span>
-        <span class="material-icons star">star</span>
-        <span class="material-icons star">star</span>
-        <span class="material-icons star">star</span>
-        <span class="material-icons star">star</span>
+    </main>
+    <aside>
+    <div class="star-container" role="img" aria-hidden="true">
+        <span class="material-icons star" aria-hidden="true">star</span>
+        <span class="material-icons star" aria-hidden="true">star</span>
+        <span class="material-icons star" aria-hidden="true">star</span>
+        <span class="material-icons star" aria-hidden="true">star</span>
+        <span class="material-icons star" aria-hidden="true">star</span>
     </div>
+    </aside>
 </body>
 </html>

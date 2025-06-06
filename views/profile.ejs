@@ -9,24 +9,27 @@
     <link rel="stylesheet" href="/profile.css">
 </head>
 <body>
-    <div class="off-screen-menu">
-        <span class="material-symbols-outlined close-icon">close</span>
+    <nav>
+    <div class="off-screen-menu" role="navigation">
+        <span class="material-symbols-outlined close-icon" role="button" aria-label="Close menu">close</span>
         <ul>
-            <li> <span class="material-symbols-outlined">checklist</span> <a href="/habits">Habits</a> </li>
-            <li> <span class="material-symbols-outlined">leaderboard</span> <a href="/leaderboard">Leaderboard</a> </li>
-            <li id="current-page"> <span class="material-symbols-outlined"> account_circle</span> <a href="/profile">Profile</a> </li>
+            <li> <span class="material-symbols-outlined" aria-hidden="true">checklist</span> <a href="/habits" aria-label="Link to habits page">Habits</a> </li>
+            <li> <span class="material-symbols-outlined" aria-hidden="true">leaderboard</span> <a href="/leaderboard" aria-label="Link to leaderboard page">Leaderboard</a> </li>
+            <li id="current-page"> <span class="material-symbols-outlined" aria-hidden="true"> account_circle</span> <a href="/profile" aria-label="Link to profile page">Profile</a> </li>
         </ul>
     </div>
+    </nav>
         <div class="points-rectangle">
         <div class="tooltip">
-            <span class="material-icons star">star</span>
+            <span class="material-icons star" aria-hidden="true">star</span>
             <span id="points-display"><%= points %></span>
             <span class="tooltiptext">Check off habits to earn points.</span>
         </div>
     </div>
-    <span class="material-symbols-outlined menu-icon">menu</span>    
+    <span class="material-symbols-outlined menu-icon" role="button" aria-label="Menu button">menu</span>  
+    <main>  
     <h1>Hi, <%= username %>!
-        <span class="material-symbols-outlined edit-icon" onclick="openPopup()">info</span>
+        <span class="material-symbols-outlined edit-icon" onclick="openPopup()" role="button" aria-label="See your account information">info</span>
         <div class="popup" id="popup">
             <form action="">
                 <label for="username">
@@ -44,11 +47,11 @@
             </form>
         </div>
     </h1>
+    </main>
     <br><br>
-    <fieldset>
-        <a href="http://localhost:3000/logout" class="logout">Log Out</a>
+    <fieldset role="button">
+        <a href="http://localhost:3000/logout" class="logout" aria-label="Log out of your account">Log Out</a>
     </fieldset>
-
     <script src="/js/popup.js"></script>
     <script src="/js/ham-menu.js"></script>
 </body>
