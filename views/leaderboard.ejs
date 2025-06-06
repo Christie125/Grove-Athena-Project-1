@@ -9,26 +9,39 @@
     <link rel="stylesheet" href="/leaderboard.css">
 </head>
 <body>
-    <div class="off-screen-menu">
-        <span class="material-symbols-outlined close-icon">close</span>
+    <nav>
+    <div class="off-screen-menu" role="navigation">
+        <span class="material-symbols-outlined close-icon" role="button" aria-label="Close menu">close</span>
         <ul>
-            <li> <span class="material-symbols-outlined">checklist</span> <a href="/habits">Habits</a> </li>
-            <li id="current-page"> <span class="material-symbols-outlined">leaderboard</span> <a href="/leaderboard">Leaderboard</a> </li>
-            <li> <span class="material-symbols-outlined"> account_circle</span> <a href="/profile">Profile</a> </li>
+            <li> <span class="material-symbols-outlined" aria-hidden="true">checklist</span> <a href="/habits" aria-label="Link to habits page">Habits</a> </li>
+            <li id="current-page"> <span class="material-symbols-outlined"aria-hidden="true">leaderboard</span> <a href="/leaderboard"aria-label="Link to leaderboard page">Leaderboard</a> </li>
+            <li> <span class="material-symbols-outlined"aria-hidden="true"> account_circle</span> <a href="/profile" aria-label="Link to profile page">Profile</a> </li>
         </ul>
     </div>
+    </nav>
         <div class="points-rectangle">
         <div class="tooltip">
-            <span class="material-icons star">star</span>
+            <span class="material-icons star" aria-hidden="true">star</span>
             <span id="points-display"><%= points %></span>
             <span class="tooltiptext">Check off habits to earn points.</span>
         </div>
     </div>
-    <span class="material-symbols-outlined menu-icon">menu</span>   
+    <span class="material-symbols-outlined menu-icon" aria-label="Open menu icon">menu</span>   
+    <header>
     <h1>Leaderboard</h1>
-    <div id="leaderboard">
-
+    </header>
+    <main>
+        <div id="leaderboard" aria-label="Leaderboard">
+        <table aria-label="Leaderboard table" role="presentation"> 
+            <th>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Points</th>
+                </tr>
+            </th>
     </div>
+    </main>
     <script src="/js/ham-menu.js"></script>
     <script src="/js/leaderboard.js"></script>
 </body>

@@ -7,8 +7,7 @@
     --grey-input-border: #cbcaca6e;
     --avocado-menu: #CDD993E6;
     --avocado: #CDD993;
-    --light-avocado: #dae2b0;
-
+    --light-avocado: #f0f7cf;
     --yellow: #FAFCB1;
   }
   
@@ -122,7 +121,7 @@ ul a {
 }
 
 ul li:hover a {
-  color: white; /* Ensure the anchor tag turns white when the list item is hovered */
+  color: white; /* Ensures the anchor tag turns white when the list item is hovered */
 }
 button:focus {
   outline: 2px solid var(--darkest-green);
@@ -185,9 +184,10 @@ td {
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  width: 200%;
+  width: 300%;
   top: 100%;
-  left: -50%;
+  left: -110%;
+  font-size: 0.9em;
 }
 
 .tooltip:hover .tooltiptext {

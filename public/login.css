@@ -4,7 +4,8 @@
     --darkest-green: #53793D;
     --background-light: #f2e8cf, 10%;
     --avocado: #CDD993;
-    --light-avocado: #dae2b0;
+    --avocado-button: rgb(218, 228, 172);
+    --light-avocado: #f0f7cf;
     --avocado-hover: #dce6ac;
     --yellow: #FAFCB1;
 
@@ -24,7 +25,7 @@
     padding-bottom: 15px;
   }
 
-  h5 {
+  h2 {
     text-align: center;
     font-weight: 500;
     font-size: 1.5em;
@@ -50,7 +51,7 @@
     border: 1.5px solid var(--darkest-green);
     padding-top: 1%;
     padding-bottom: 1%;
-    background-color: var(--avocado);
+    background-color: var(--avocado-button);
     background-clip: border-box;
   }
 
@@ -67,6 +68,7 @@
     margin: 0;
     fill: white;
   }
+
   
   .star {
     color: var(--yellow);

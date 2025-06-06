@@ -253,9 +253,10 @@ button:focus {
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  width: 200%;
+  width: 300%;
   top: 100%;
-  left: -50%;
+  left: -110%;
+  font-size: 0.9em;
 }
 
 .tooltip:hover .tooltiptext {
