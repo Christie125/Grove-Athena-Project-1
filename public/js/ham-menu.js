@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     close.addEventListener("click", () => {
         offScreenMenu.classList.remove("active");
-        console.log("Menu closed.");
     });
 });
   

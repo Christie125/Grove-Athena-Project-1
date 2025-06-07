@@ -26,7 +26,6 @@ function getleaderboard() {
 
             // Appending the row to the table
         table.appendChild(tr);
-        console.log(`Adding user to leaderboard: ${user.username} with points: ${user.points}`);        
     });
         
     leaderboard.appendChild(table);})
@@ -34,6 +33,5 @@ function getleaderboard() {
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-            console.log("Document loaded, fetching leaderboard...");
             getleaderboard();
         });
