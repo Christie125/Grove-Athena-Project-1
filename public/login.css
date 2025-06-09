@@ -21,7 +21,7 @@
     text-align: center;
     font-weight: 900;
     font-size: 2rem;
-    font-size: clamp(2rem, 0.7179487179487178rem + 5.47008547008547vw, 3.5rem);    
+    font-size: clamp(2rem, 0.7179487179487178rem + 5.47008547008547vw, 3.1rem);    
     margin-bottom: 0;
     padding-bottom: 15px;
   }
@@ -30,7 +30,7 @@
     text-align: center;
     font-weight: 500;
     font-size: 0.8rem;
-    font-size: clamp(0.8rem, -0.3256410256410256rem + 4.376068376068376vw, 1.8rem);    
+    font-size: clamp(0.8rem, -0.3256410256410256rem + 4.376068376068376vw, 1.5rem);    
     margin: 0;
     padding: 0;
     margin-bottom: 0;
