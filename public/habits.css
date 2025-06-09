@@ -8,6 +8,7 @@
     --grey-input-border: #cbcaca6e;
     --avocado-menu: #CDD993E6;
     --avocado: #CDD993;
+    --light-avocado: #f0f7cf;
     --yellow: #FAFCB1;
   }
   
@@ -20,16 +21,16 @@
   h1{
     text-align: center;
     font-weight: 900;
-    font-size: 2.3em;
-    margin-top: 0;
+    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 0.9871794871794872rem + 2.188034188034188vw, 2.3rem);    margin-top: 0;
     padding-top: 0;
     margin-bottom: 3%;
   }
 
   p{
     font-weight: 400;
-    font-size: 1.1em;
-    vertical-align: middle;
+    font-size: 0.7rem;
+    font-size: clamp(0.7rem, 0.44358974358974346rem + 1.0940170940170943vw, 1.1rem);    vertical-align: middle;
   }
 
   .material-symbols-outlined {
@@ -45,10 +46,19 @@
     -webkit-text-stroke-width: 0.4px;
     -webkit-text-stroke-color: var(--darkest-green);
     transform: translate(0, 4px);
+    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 0.6000000000000001rem + 1.5vw, 1.5rem);
 }
+
+  @media screen and (max-width: 460px) {
+    .star {
+      transform: translate(0, 1.5px);
+    }
+  }
   
   .menu-icon { 
-    font-size: 60px; 
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.15rem + 4.250000000000001vw, 3.7rem);
     padding: 1%;
     cursor: pointer;
   }
@@ -65,15 +75,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;                
+  gap: 2%;                
   margin-top: 0px;
   border: var(--darkest-green) solid 1px;
   border-radius: 2px;
   cursor: pointer;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.5499999999999999rem + 0.7500000000000001vw, 1rem);
+  background-color: var(--light-avocado);
 }
 
+  .icon-container-add:hover {
+    background-color: var(--avocado-menu);
+    color: var(--darkest-green);
+  }
+
+  @media screen and (max-width: 360) {
+    .icon-container-add {
+      gap: 5px; /* Reduces the gap between the icon and text on smaller screens */	
+    }
+    
+  }
+
   .add-icon {
-    font-size: 50px;
+    font-size: 1.25rem;
+    font-size: clamp(1.25rem, -0.3125rem + 7.8125vw, 3rem);
     cursor: pointer;
     text-align: center;
   }
@@ -145,7 +171,7 @@ ul a {
 }
 
 ul li:hover a {
-  color: white; /* Ensure the anchor tag turns white when the list item is hovered */
+  color: white; /* Ensures the anchor tag turns white when the list item is hovered */
 }
 button:focus {
   outline: 2px solid var(--darkest-green);
@@ -197,6 +223,8 @@ button{
   margin-top: 4%;
   color: white;
   border-width: 0;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.29999999999999993rem + 1.0000000000000002vw, 0.9rem);
 }
 
 button:hover{
@@ -208,10 +236,14 @@ input{
   font-family: 'Manrope', sans-serif;
   border: solid 1px var(--darkest-green);
   border-radius: 8px;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.29999999999999993rem + 1.0000000000000002vw, 0.7rem);
 }
 
 label{
   font-weight: bold;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.29999999999999993rem + 1.0000000000000002vw, 0.75rem);
 }
 
 #habitsContainer{
@@ -226,22 +258,24 @@ label{
 }
 
 .habit_name_heading{
-  font-size: 1.3em;
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.3999999999999999rem + 1.5000000000000002vw, 1.5rem);
   font-weight: 900;
   margin: 0;
   padding: 0;
-  margin-bottom: 3.5%;
+  margin-bottom: 1.5%;
   display: flex;
   justify-content: space-between;
 
 }
 
 .habit_description{
-  font-size: 1em;
-  font-weight: 900;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.15000000000000002rem + 1.7499999999999998vw, 1.2rem);
+  font-weight: 700;
   margin: 0;
   padding: 0;
-  margin-bottom: 3.5%;
+  margin-bottom: 4%;
 }
 
 .habit_frequency{
@@ -274,16 +308,18 @@ input:focus {
 .delete-button {
   cursor: pointer;
   display: inline;
+  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 0rem + 2.5vw, 1.5rem);  /* Icon size */
 }
 
 .habit_buttons {
   display: flex;
-  gap: 8px; /* space between edit and delete buttons */
 }
 
 .points-rectangle{
       position: relative;
       top: 32px; 
+      vertical-align: middle;
 }
 
 .tooltip {
@@ -291,8 +327,9 @@ input:focus {
   display: inline;
   border-bottom: 1px dotted black; /*  dots under the hoverable text */
   margin-left: 85%;
-  margin-top: -2%;
   font-weight: bolder;
+  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 0.6000000000000001rem + 0.9999999999999999vw, 1.2rem);
 }
 
 /* Tooltip text */
@@ -309,7 +346,8 @@ input:focus {
   width: 300%;
   top: 100%;
   left: -110%;
-  font-size: 0.9em;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.29999999999999993rem + 1.0000000000000002vw, 0.9rem);
 }
 
 .tooltip:hover .tooltiptext {

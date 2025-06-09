@@ -20,17 +20,10 @@
   h1{
     text-align: center;
     font-weight: 900;
-    font-size: 2.3em;
-    margin-top: 0;
+    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 0.9871794871794872rem + 2.188034188034188vw, 2.3rem);    margin-top: 0;
     padding-top: 0;
-  }
-
-  .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 500,
-    'GRAD' 0,
-    'opsz' 100,
+    margin-bottom: 3%;
   }
 
   .material-symbols-outlined {
@@ -45,11 +38,36 @@
     color: var(--yellow);
     -webkit-text-stroke-width: 0.4px;
     -webkit-text-stroke-color: var(--darkest-green);
-    transform: translate(0, 3px);
+    transform: translate(0, 4px);
+    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 0.6000000000000001rem + 1.5vw, 1.5rem);
+}
+
+@media screen and (max-width: 460px) {
+    .star {
+      transform: translate(0, 1.5px);
+    }
+  }
+
+  .center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5%;
+  }
+
+  p{
+    font-weight: 400;
+    font-size: 0.7rem;
+    font-size: clamp(0.7rem, 0.44358974358974346rem + 1.0940170940170943vw, 1.1rem);    
+    vertical-align: middle;
+  
 }
 
   .menu-icon { 
-    font-size: 60px; 
+    font-size: 2rem;
+    font-size: clamp(2rem, 1.15rem + 4.250000000000001vw, 3.7rem);
     padding: 1%;
     cursor: pointer;
   }
@@ -142,6 +160,7 @@ table{
   border-spacing: 0;
   margin:auto;
   font-size: large;
+  width: 50%;
 }
 
 td:nth-child(odd){
@@ -157,11 +176,13 @@ td {
   border: 1px solid var(--darkest-green);
   align-content: middle;
   vertical-align:middle;
+  overflow: ellipsis;
 }
 
 .points-rectangle{
       position: relative;
       top: 32px; 
+      vertical-align: middle;
 }
 
 .tooltip {
@@ -169,8 +190,9 @@ td {
   display: inline;
   border-bottom: 1px dotted black; /*  dots under the hoverable text */
   margin-left: 85%;
-  margin-top: -2%;
   font-weight: bolder;
+  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 0.6000000000000001rem + 0.9999999999999999vw, 1.2rem);
 }
 
 /* Tooltip text */
@@ -187,9 +209,16 @@ td {
   width: 300%;
   top: 100%;
   left: -110%;
-  font-size: 0.9em;
+  font-size: 0.5rem;
+  font-size: clamp(0.5rem, 0.29999999999999993rem + 1.0000000000000002vw, 0.9rem);
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.leaderboard-text {
+  font-weight: 500;
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.44358974358974346rem + 1.0940170940170943vw, 1.1rem);
 }

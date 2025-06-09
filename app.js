@@ -157,6 +157,7 @@ app.post("/add-habit", (req, res) => {
   if (req.isAuthenticated()) {
     const { name, description, frequency } = req.body;
     const userId = req.user.id;
+    const freqNum = Number(frequency);
 
     if (name && description && frequency !== undefined) {
       if (
@@ -166,13 +167,13 @@ app.post("/add-habit", (req, res) => {
         /^[a-zA-Z0-9 ]+$/.test(name) &&
         typeof description === "string" &&
         description.length < 30 &&
-        typeof frequency === "number" &&
-        Number(frequency) > 0 &&
-        Number(frequency) < 15
+        !isNaN(freqNum) &&
+        freqNum > 0 &&
+        freqNum < 15
       ) {
         pool.query(
           "INSERT INTO habits (user_id, habit, habit_note, how_often_habit) VALUES ($1, $2, $3, $4) RETURNING *",
-          [userId, name, description, frequency],
+          [userId, name, description, freqNum],
           (err, result) => {
             if (err) {
               console.error("Error adding habit:", err);
