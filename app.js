@@ -13,9 +13,16 @@ app.use(express.static('public'));
 
 app.use(express.json());
 
+const sessionSecret = process.env.SESSION_SECRET
+
+if (!sessionSecret) {
+  console.error("Session secret is not set.");
+  process.exit(1);
+}
+
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "secret",  
+    secret: sessionSecret,
     resave: false,
     saveUninitialized: false,
   })
@@ -90,7 +97,7 @@ app.get(
 
 app.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/" }),
+  passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
     res.redirect("/habits");
   }
@@ -150,19 +157,35 @@ app.post("/add-habit", (req, res) => {
   if (req.isAuthenticated()) {
     const { name, description, frequency } = req.body;
     const userId = req.user.id;
+    const freqNum = Number(frequency);
 
-    if (name && description && frequency) {
-      pool.query(
-        "INSERT INTO habits (user_id, habit, habit_note, how_often_habit) VALUES ($1, $2, $3, $4) RETURNING *",
-        [userId, name, description, frequency],
-        (err, result) => {
-          if (err) {
-            console.error("Error adding habit:", err);
-            return res.status(500).send("Error adding habit. Please try again.");
+    if (name && description && frequency !== undefined) {
+      if (
+        typeof name === "string" &&
+        name.length < 30 &&
+        //name does not contain special characters
+        /^[a-zA-Z0-9 ]+$/.test(name) &&
+        typeof description === "string" &&
+        description.length < 30 &&
+        !isNaN(freqNum) &&
+        freqNum > 0 &&
+        freqNum < 15
+      ) {
+        pool.query(
+          "INSERT INTO habits (user_id, habit, habit_note, how_often_habit) VALUES ($1, $2, $3, $4) RETURNING *",
+          [userId, name, description, freqNum],
+          (err, result) => {
+            if (err) {
+              console.error("Error adding habit:", err);
+              return res.status(500).send("Error adding habit. Please try again.");
+            }
+            res.status(200).json({ message: "Habit added successfully", habit: result.rows[0] });
           }
-          res.status(200).json({ message: "Habit added successfully", habit: result.rows[0] });
-        }
-      );
+        );
+      }
+      else {
+        res.status(400).send("Invalid input. Please check your data and make sure that your input is not overly long and does not contain special characters.");
+      }
     } else {
       res.status(400).send("Please fill in all fields.");
     }
@@ -279,10 +302,16 @@ app.get("/getleaderboard" , async (req, res) => {
 
 // Logout route
 app.get("/logout", (req, res) => {
-  req.logout(() => {
-    req.session.destroy();
-    res.redirect("/login");
-  });
+  try {
+    req.logout(() => {
+      req.session.destroy();
+      res.clearCookie('connect.sid');
+      res.redirect("/login");
+    });
+  } catch (error) {
+    console.error("Error during logout:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Login page route

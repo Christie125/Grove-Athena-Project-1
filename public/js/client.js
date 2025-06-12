@@ -131,7 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const checkbox = event.target;
             const habitDiv = checkbox.closest('.habits_div');
             const habitName = habitDiv.querySelector('.habit_name h2.habit_name_heading').textContent.trim();
-            console.log(`Checkbox for ${habitName} changed: ${checkbox.checked}`);
             // update points in the database
             const response = await fetch('/update-points', {
                 method: 'POST',
@@ -171,9 +170,8 @@ function resetDailyStorage() {
   if (lastReset !== today) {
     localStorage.clear();
     localStorage.setItem('lastResetDate', today);
-    console.log('Storage reset for a new day:', today);
   } else {
-    console.log('Storage already reset today.');
+    // If today is the same as last reset, do nothing
   }
 }
 
